@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MENU UTAMA</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        /* untuk side navigasi */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: rgba(57, 65, 141, 0.486);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+          }
+
+          .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #f0f0f0;
+            display: block;
+            transition: 0.3s;
+          }
+
+          .sidenav a:hover {
+            color: #b49595;
+          }
+
+          .sidenav .closebtn {
+        
+            font-size: 36px;
+            margin-left: 50px;
+          }
+
+          @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+          }
+        /* untuk navbar dan carousel, dan caption carousel*/
+        .carousel-item {
+          height: 80vh;
+          min-height: 300px;
+          background: no-repeat center center scroll;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+        .carousel-caption {
+          bottom: 270px;
+        }
+        .carousel-caption h5 {
+          font-size: 45px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-top: 25px;
+          font-family: 'Brush Script MT', cursive;
+        }
+        .carousel-caption p {
+          width: 75%;
+          margin: auto;
+          font-size: 18px;
+          line-height: 1.9;
+          font-family: 'Brush Script MT', cursive;
+        }
+        .navbar-light .navbar-brand {
+          color: #fff;
+          font-size: 25px;
+          text-transform: uppercase;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+        .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, 
+        .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+          color: #fff;
+        }
+        .navbar-light .navbar-nav .nav-link {
+          color: #fff;
+        }
+        .navbar-toggler {
+          background: #fff;
+        }
+        .navbar-nav {
+          text-align: center;
+        }
+        .nav-link {
+          padding: .2rem 1rem;
+        }
+        .nav-link.active, .nav-link:focus {
+          color: #fff;
+        }
+        .navbar-toggler {
+          padding: 1px 5px;
+          font-size: 18px;
+          line-height: 0.3;
+        }
+        .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+          color: #fff;
+        }
+        /* Head main */
+        #main_head h3 {
+          color: rgb(0, 0, 0);
+          text-align: center;
+          font-size: 32pt;
+          text-shadow: 5px 5px 10px rgb(82, 53, 136);
+        }
+        #main_head2 h3 {
+          color: rgb(2, 2, 2);
+          text-align: center;
+          margin-left: 15%;
+          font-size: 24pt;
+          text-shadow: 5px 5px 10px rgb(82, 53, 136);
+        }
+        /* posisi panel selanjutnya */
+        #lanjut {
+          margin: 0 auto;
+        }
+        /* Untuk Footer */
+        #foot a {
+          color: black;
+          font-size: 18pt;
+        }
+        #foot {
+          margin-right: 25%;
+        }
+        /* Profilku */
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 300px;
+          margin: auto;
+          text-align: center;
+        }
+
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+
+        button {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 8px;
+          color: white;
+          background-color: #000;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+        }
+
+        a {
+          text-decoration: none;
+          font-size: 22px;
+          color: black;
+        }
+
+        button:hover, a:hover {
+          opacity: 0.7;
+        }
+        /* UNTUK Navs "Kembali" di bawah*/
+        #myBtn {
+        display: none; 
+        position: fixed;
+        bottom: 20px; 
+        right: 30px; 
+        z-index: 99; 
+        border: none;
+        outline: none; 
+        background-color: red;
+        color: white; 
+        cursor: pointer; 
+        padding: 15px; 
+        border-radius: 10px; 
+        font-size: 18px; 
+      }
+      #myBtn:hover {
+        background-color: #555; 
+      }
+    </style>
+</head>
+<body class=" bg-primary">
+    <div id="header">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">PARIWISATA</a> 
+          <button aria-controls="navbarSupportedContent" 
+              aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" 
+              data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="wisataPati.html">Beranda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">
+                  Buku Tamu
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span style="cursor:pointer" onclick="openNav()">
+                    Tentang
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+        <ol class="carousel-indicators">
+          <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
+          <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+          <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img alt="First slide" class="d-block w-100" src="img/head1.jpg">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>SELAMAT DATANG</h5>
+              <p>Silahkan Mencari Destinasi Favorit Anda</p>
+              <p>Di Kota Pati</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img alt="Second slide" class="d-block w-100" src="img/head2.jpg">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>KABUPATEN PATI</h5>
+              <p>Kota Dengan Seribu Pariwisata</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img alt="Third slide" class="d-block w-100" src="img/head3.jpg">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>REKOMENDASI ANDA</h5>
+              <p>Kami Disini Untuk Memberi Kemudahan</p>
+              <p>Menetukan Destinasi Wisata</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button">
+          <span aria-hidden="true" class="carousel-control-prev-icon"></span> 
+          <span class="sr-only">Previous</span>
+        </a> 
+        <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button">
+          <span aria-hidden="true" class="carousel-control-next-icon"></span> 
+          <span class="sr-only">Next</span>
+        </a>
+        
+      </div>
+      <div id="mySidenav" class="sidenav">
+        <a href="data_tamu.php">Daftar Tamu</a>
+        <a href="https://id.wikipedia.org/wiki/Kabupaten_Pati">Tentang Pati</a>
+        <a href="" data-toggle="modal" data-target="#exampleModalCenter">Contact</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              ISI BUKU TAMU
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="data_tamu.php">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nama</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" name="nam" placeholder="Nama Anda..." required>
+            </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="ema"placeholder="Email Anda" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Destinasi</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="desti" placeholder="Destinasi Anda..." required>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Pesan</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="pes" rows="3" required></textarea>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div><br></div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Kirim Pesan Anda</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nama</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Anda...">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Pesan</label>
+                <input type="textarea" class="form-control" id="exampleInputPassword1" placeholder="Pesan Anda">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+            <button type="button" class="btn btn-primary">Kirim</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <div id="main" class="container bg-light">
+      <br><br>
+      <div id="main_head"><h3>REKOMENDASI<h3></div>
+      <div id="main_head2"><h3>KAMI</h3></div>
+      <br><br>
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 21rem;">
+          <div class="card-body">
+            <img src="img/main2.jpg" alt="..." class="img-thumbnail">
+            <br>
+            <h5 class="card-title">Wisata Agro Jollong</h5>
+            <p class="card-text">Menikmati kebun buah naga dan kebun kopi serta wisata lainnya. 
+              Garden valley adalah yang terbaru.</p>
+            <a href="#" class="btn btn-primary">Selengkapnya...</a>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 21rem;">
+          <div class="card-body">
+            <img src="img/main1.jpg" alt="..." class="img-thumbnail">
+            <br>
+            <h5 class="card-title">Waduk Seloromo Gembong</h5>
+            <p class="card-text">Menikmati sunset di tepi waduk sambil melepas lelah seharian. 
+              Sangat cocok untuk menghabiskan waktu anda.</p>
+            <a href="#" class="btn btn-primary">Selengkapnya...</a>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 21rem;">
+        <div class="card-body">
+          <img src="img/main3.jpg" alt="..." class="img-thumbnail">
+          <br>
+          <h5 class="card-title">Hutan Pinus Pangonan</h5>
+          <p class="card-text">Pemandangan hutan pinus dengan barisan bukit-bukit di sekitarnya sangat memanjakan mata.</p>
+          <a href="#" class="btn btn-primary">Selengkapnya...</a>
+        </div>
+        </div>
+        </div>
+      </div>
+      <br><br><br><br>
+      <div id="lanjut"class="card text-center" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title">Ingin Melihat Lebih Banyak Lagi</h5>
+          <p class="card-text">Silahkan klik tombol di bawah</p>
+          <a href="#" class="btn btn-primary">Selengkapnya</a>
+        </div>
+      </div>
+      <br>
+    </div>
+    <div id="footer">
+      <br><br>
+      <div class="container bg-light">
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <br><br>
+              <div id="foot" class="col">
+                <br>
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="" onclick="topFunction()" 
+                    id="myBtn" title="Kembali">Kembali</a>
+                  </li><br>
+                  <li class="nav-item">
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Buku Tamu</a>
+                  </li><br>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><span style="cursor:pointer" onclick="openNav()">Tentang</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <br><br><br><br>
+              <div class="card">
+                <h3>Irfan Wahyu Ramadhani</h3>
+                <p class="title">A11.2021.13681</p>
+                <p>Universitas Dian Nuswantoro</p>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <p><button data-toggle="modal" data-target="#exampleModalCenter">Contact</button></p>
+              </div>
+            </div>
+            <div class="col">
+              <div id="foot2" class="col">
+                <br>
+                <div>
+                  <h3>Lokasi Kabupaten Pati</h3>
+                  <br>
+                </div>
+                <div>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.134216485473!2d111.03783231431554!3d-6.75348196791449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70d3865c25c99f%3A0x56d6f2687885967c!2sAlun-Alun%20Pati!5e0!3m2!1sid!2sid!4v1641991357960!5m2!1sid!2sid" 
+                  width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+                  </iframe>
+                  <br><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+<script>
+      // buka sidebar
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.body.style.backgroundColor = "white";
+      }
+
+      // Untuk kembali ke atas web
+      mybutton = document.getElementById("myBtn");
+
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      function topFunction() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+      }
+</script>
+</html>
